@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'none'; img-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Fit3 — tes HR standar</title></head><body>
+<h1>Tes detak jantung Bluetooth</h1>
+<p><strong>EKSPERIMENTAL — halaman web ini belum diuji pada iPhone dan Fit3 sungguhan.</strong> Ini hanya tes layanan HR standar, bukan platform dan bukan alat diagnosis medis.</p>
+<p id="environment">Memeriksa browser…</p>
+<ol><li>Buka halaman HTTPS ini di Bluefy, bukan Safari atau browser dalam Telegram.</li><li>Disconnect Fit3 di nRF Connect agar tes ini terpisah dari aplikasi tersebut. Tidak perlu Forget Device atau reset.</li><li>Pakai gelang. Jika belum ada HR, aktifkan pengukuran kontinu atau workout dari gelang bila kamu memilih melakukannya.</li><li>Tekan Connect, izinkan Bluetooth bila diminta, lalu pilih Galaxy Fit3. Tetap buka halaman ini saat tes; berhasil connect belum berarti data terbaca.</li></ol>
+<button id="connect">Connect & dengarkan HR</button> <button id="disconnect" disabled>Putus / batalkan</button>
+<p id="device">Perangkat: belum dipilih</p><p id="status">Belum ada sesi.</p>
+<h2 id="reading">Belum ada data</h2><p id="details">Bukti baru ada jika notifikasi dari perangkat diterima. Layanan 0x180D/0x2A37 belum tentu tersedia pada firmware Fit3-mu.</p>
+<p>Probe ini tidak mengirim perintah pengukuran, reset, firmware, atau konfigurasi Samsung. Tidak mengunggah data. Aktivasi notifikasi BLE tetap dilakukan melalui browser.</p>
+<p>Versi minimal ini hanya menerima paket HR 8-bit dua byte tanpa Energy/RR; format lain dilaporkan sebagai unsupported, bukan ditebak.</p>
+<button id="export">Unduh log lokal</button><p>Log berisi nilai kesehatan, waktu terima, dan byte mentah. Nama/ID perangkat tidak dicantumkan. Bagikan hanya jika kamu mengizinkan.</p>
+<pre id="log"></pre>
+<p>Privasi: bacaan dan log hanya berada di memori halaman ini; muat ulang menghapusnya. Tidak ada analitik, penyimpanan cloud, atau unggah otomatis. Penyedia hosting tetap dapat menerima metadata permintaan halaman seperti alamat IP, bukan data HR dari kode halaman ini.</p>
+<p>Rilis tes: hrs-web-0.1.1. Hanya HR 8-bit dua byte yang didukung. Belum ada sinkronisasi langkah, tidur, Apple Health, atau Hermes.</p>
+<script type="module" src="./ui.mjs"></script></body></html>
