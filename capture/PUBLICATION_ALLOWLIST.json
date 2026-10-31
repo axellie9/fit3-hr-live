@@ -1,0 +1,26 @@
+{
+  "targetIfAccepted": "/fit3-hr-live/capture/index.html?bluefy=1",
+  "deploymentAuthority": "parent only; not approved or deployed by worker",
+  "license": "GPL-3.0-only",
+  "files": [
+    "index.html",
+    "site/app.mjs",
+    "site/controller.mjs",
+    "site/capture.css",
+    "site/session.js",
+    "site/ble.js",
+    "site/fit3-probe.js",
+    "LICENSE",
+    "NOTICE.md",
+    "OWN_NOTICE.md",
+    "SOURCE_HASHES.json",
+    "PUBLICATION_ALLOWLIST.json"
+  ],
+  "exclude": [
+    "tests/**",
+    "evidence/**",
+    "REVIEW_HANDOFF.md",
+    "ARTIFACT_MANIFEST.json",
+    "any raw owner captures or exports"
+  ]
+}

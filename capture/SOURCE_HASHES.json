@@ -1,0 +1,32 @@
+[
+  {
+    "source": "../diagnostic/site/session.js",
+    "copy": "site/session.js",
+    "bytes": 14162,
+    "sha256": "1eccf89119b39e5a53e4b4cc18b2998fa88683683be647af67ed69628914afb6"
+  },
+  {
+    "source": "../diagnostic/site/ble.js",
+    "copy": "site/ble.js",
+    "bytes": 4742,
+    "sha256": "f309e751278e3581eea16b8b7ccf3a219d641dc49d9548ef7b73fad7800796fd"
+  },
+  {
+    "source": "../diagnostic/site/fit3-probe.js",
+    "copy": "site/fit3-probe.js",
+    "bytes": 21912,
+    "sha256": "1a46d2e9ab18e0f10695cccf494fe5ce1ee4445d4fefb794959e49219f39afc1"
+  },
+  {
+    "source": "../diagnostic/LICENSE",
+    "copy": "LICENSE",
+    "bytes": 35149,
+    "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+  },
+  {
+    "source": "../diagnostic/NOTICE.md",
+    "copy": "NOTICE.md",
+    "bytes": 4902,
+    "sha256": "ced16ac8b9d3606f7a2476ed2b23ee6a7acaeb9245532f07d18bed5579f8eb39"
+  }
+]
