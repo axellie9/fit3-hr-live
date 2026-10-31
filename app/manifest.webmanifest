@@ -1,0 +1,16 @@
+{
+  "id":"/fit3-hr-live/app/",
+  "name":"Fit3 · Monitor lokal",
+  "short_name":"Fit3 Lokal",
+  "description":"Monitor notifikasi HRS dan arsip sesi ponsel lokal; bukan riwayat gelang.",
+  "lang":"id",
+  "start_url":"./",
+  "scope":"./",
+  "display":"standalone",
+  "theme_color":"#245848",
+  "background_color":"#f7f5ef",
+  "icons":[
+    {"src":"icon-192.png","sizes":"192x192","type":"image/png","purpose":"any"},
+    {"src":"icon-512.png","sizes":"512x512","type":"image/png","purpose":"any"}
+  ]
+}
