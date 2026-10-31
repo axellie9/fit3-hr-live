@@ -1,9 +1,11 @@
 // SPDX-License-Identifier: GPL-3.0-only
-import {CaptureController} from './controller.mjs';
+import {CaptureController} from './controller.mjs?rev=filter-r1-1';
 const el=id=>document.getElementById(id);
 let downloadUrl=null;
 const controller=new CaptureController({bluetooth:navigator.bluetooth,onChange:render});
 function render(v){
+ const filterLocked=v.pending||v.connected||['choosing','connecting','subscribing','listening'].includes(v.phase);
+ el('show-all').disabled=filterLocked;el('name-prefix').disabled=filterLocked||el('show-all').checked;
  el('status').textContent=`${v.phase} · ${v.connected?'connected':'disconnected'}${v.pending?' · pending: waiting for previous Bluetooth operation to settle':''}${v.reason?' · '+v.reason:''}${v.error?' · '+v.error:''}`;
  el('records').textContent=String(v.records);el('bytes').textContent=String(v.bytes);el('remaining').textContent=v.remainingSeconds?`${v.remainingSeconds}s`:'—';
  el('connect').disabled=v.pending||v.hasCapture||document.hidden;
@@ -13,7 +15,8 @@ function render(v){
  el('export').disabled=v.pending||['choosing','connecting','subscribing','listening'].includes(v.phase)||!v.hasCapture||!el('consent').checked;
 }
 function report(e){el('notice').textContent=String(e?.message||e);}
-el('connect').addEventListener('click',()=>{el('notice').textContent='';el('consent').checked=false;controller.start().catch(report);});
+el('connect').addEventListener('click',()=>{el('notice').textContent='';el('consent').checked=false;controller.start({namePrefix:el('name-prefix').value,showAllDevices:el('show-all').checked}).catch(report);});
+el('show-all').addEventListener('change',()=>render(controller.view()));
 el('cancel').addEventListener('click',()=>controller.stop('cancel'));
 el('stop').addEventListener('click',()=>controller.stop('manual-disconnect'));
 el('consent').addEventListener('change',()=>render(controller.view()));
