@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="dark"><meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Fit3 · HR Lokal</title><link rel="stylesheet" href="style.css">
+</head>
+<body><main>
+<header><span class="eyebrow">FIT3 / HRS LOKAL</span><span class="tag">Web · r1 review</span></header>
+<h1>Detak jantung</h1>
+<p class="intro">Pantau sesi singkat di Bluefy. Data hanya di memori halaman ini.</p>
+<section class="monitor" aria-label="Pembacaan HRS">
+ <div class="label">NOTIFIKASI TERAKHIR <span id="freshness">BELUM ADA DATA</span></div>
+ <div class="reading"><output id="bpm" aria-label="Detak per menit">—</output><span>bpm</span></div>
+ <p id="age">Menunggu pembacaan baru.</p>
+ <div class="metrics"><div><span id="count">0</span><small>sampel sesi</small></div><div><span id="retained">0 / 180</span><small>tersimpan di RAM</small></div></div>
+ <p id="status" role="status">Belum tersambung.</p>
+ <div class="controls"><button id="connect">Pilih &amp; hubungkan</button><button id="disconnect" class="secondary" disabled>Putuskan</button></div>
+ <p id="device" class="small">Belum ada perangkat dipilih.</p>
+</section>
+<section class="history" aria-label="Jejak notifikasi sesi">
+ <div class="section-title"><h2>Jejak sesi</h2><span id="range">Belum ada data</span></div>
+ <svg id="plot" viewBox="0 0 320 110" role="img" aria-label="Grafik sampel notifikasi yang diterima, urutan penerimaan"><path class="grid" d="M8 20H312 M8 55H312 M8 90H312"/><polyline id="trace" points=""/><g id="dots"></g></svg>
+ <p class="small">Maks. 180 sampel terakhir, menurut urutan terima; bukan kurva medis atau riwayat gelang.</p>
+ <p id="details" class="small">Waktu yang ditampilkan adalah waktu <strong>terima ponsel</strong>, bukan waktu ukur gelang.</p>
+</section>
+<details><summary>Diagnostik &amp; uji latar</summary>
+ <p id="environment" class="small"></p>
+ <p class="small">Layanan 180D / karakteristik 2A37. Nama dan UUID tidak membuktikan identitas atau asal fisik perangkat. Cocokkan sendiri dengan layar gelang. Belum ada bukti aplikasi ini berjalan pada Fit3/iPhone.</p>
+ <label class="option"><input type="checkbox" id="background-test"><span>Izinkan uji latar untuk sesi halaman ini</span></label>
+ <p class="small">Default: koneksi diputus saat halaman disembunyikan/pagehide. Opt-in ini hanya meniadakan pemutusan oleh halaman; tidak menjamin Bluefy/iOS menjalankan JavaScript saat pindah app atau layar terkunci. Tidak ada koneksi otomatis.</p>
+ <p id="mode" class="notice">Mode foreground. Kembali ke halaman tidak menyambung otomatis.</p>
+ <h3>Peristiwa lokal (maks. 200)</h3><pre id="log" aria-label="Diagnostik lokal">Belum ada peristiwa.</pre>
+</details>
+<details><summary>Ekspor lokal (opsional)</summary>
+ <p class="small">Unduh JSON berisi sampel sesi yang masih di RAM dan diagnostik. Ini data kesehatan; nama/ID perangkat tidak disertakan. Tidak ada unggahan. File hasil unduh berada di luar kontrol halaman ini.</p>
+ <label class="option"><input type="checkbox" id="export-consent"><span>Saya mengizinkan unduhan data sesi ini</span></label>
+ <button id="export" class="secondary" disabled>Unduh JSON lokal</button>
+ <p id="export-status" class="small" role="status"></p>
+</details>
+<footer>Bukan alat medis. Tidak ada cloud, histori persisten, Apple Health, atau sinkronisasi vendor. Muat ulang meniadakan sesi di halaman; file yang sudah diunduh tetap ada.</footer>
+</main><script type="module" src="ui.mjs"></script></body></html>
